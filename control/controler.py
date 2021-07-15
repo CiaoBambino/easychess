@@ -22,6 +22,8 @@ class ChessColor:
 
 class CreatePlayer:
 
+class PlayerList:
+
 class RapportPlayer:
 
 class CreateTournament:

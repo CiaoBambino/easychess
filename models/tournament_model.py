@@ -1,10 +1,10 @@
 import datetime
-from models import mode
+from models import gamemode
 
 class Tournament:
 
     TOURNAMENT_COUNTER = 1
-    PLACE = "Club d'échecs de "
+    PLACE = "Club d'échecs de Paname"
     DATE = datetime.datetime.now()
 
     def __init__(self,
@@ -13,7 +13,7 @@ class Tournament:
                  date=DATE,
                  number_of_rounds=4,
                  players=None,
-                 mode=blitz,
+                 mode=gamemode.Blitz,
                  description=None):
         self.name = name
         self.place = place
@@ -22,6 +22,8 @@ class Tournament:
         self.players = players
         self.mode = mode
         self.description = description
+
+    def __call__(self, *args, **kwargs):
         Tournament.TOURNAMENT_COUNTER += 1
 
     def serializer(self):
@@ -54,10 +56,19 @@ class Tournament:
 
 class Round:
 
-    def __init__(self, name, start_time, end_time):
+    ROUND_NUMBER = 1
+
+    def __init__(self, name, start_time, end_time, matchmaking):
         self.name = name
         self.start_time = start_time
         self.end_time = end_time
+        self.matchmaking
+
+    def __call__(self):
+
+    def create_match_list(self):
+
+    def c
 
     def serializer(self):
         serialized_round = {
@@ -72,6 +83,15 @@ class Round:
         start_time = serializer_round['start_time']
         end_time = serializer_round['end_time']
         return Round(name, start_time, end_time)
+
+#class MatchMaking:
+
+    def __init__(self, players):
+        self.players = players
+
+    def __call__(self):
+
+    def matchmaking(self, player_list):
 
 
 class Match:
@@ -89,3 +109,4 @@ class Match:
 
     def __str__(self):
         return f"{self.name} opposant {self.player1} à {self.player2}"
+

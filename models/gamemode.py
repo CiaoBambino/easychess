@@ -1,7 +1,7 @@
 class Blitz:
 
     def __init__(self):
-        pass
+
 
 class Bullet:
 

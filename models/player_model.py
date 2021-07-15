@@ -40,3 +40,5 @@ class Player:
 
     def update_rank(self):
         self.
+
+class PlayerList
