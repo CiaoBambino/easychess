@@ -9,29 +9,24 @@ class MenuDisplay:
         print("[1] Créer un tournoi"
               "[2] Ajouter un joueur"
               "[3] Modifier un joueur"
-              "[4] Afficher un rapport\n\n")
-        answer = False
-        while answer is not True:
-            try:
-                option = int(input("Entrez le nombre associé à l'option désiré")
-                if option == 1:
-                    answer = True
-                elif option == 2:
-                    answer = True
-                elif option == 3:
-                    answer = True
-                elif option == 4:
-                    answer = True
-                else:
-                    print("ERREUR : le nombre entré ne correspond à aucun menu ")
-                    option = int(input("Entrez le nombre associé à l'option désiré")
-            except ValueError:
-                option = int(input("La fonction accepte un nombre entier uniquement")
+              "[4] Afficher un rapport"
+              "[5] Modifier le nom du club"
+              "[6] Aide"
+              "[7] QUITTER\n\n")
 
-class ClearConsole:
+    def create_tournament_display(self):
+        print("Saisissez les informations relatives au tournoi:"
+              "nom, place, date, nombre de tours, mode de jeu et description"
+              "Une valeur par défaut est déjà attribué"
+              "Puis ajoutez les joueurs")
 
-    def __call__(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
+    def create_player_display(self):
+        print("Saisissez les infortmations du joueur:")
+
+    def add_player_choice(self):
+        print("[1] Ajouter un joueur depuis la base de données"
+              "[2] Créer un joueur"
+              "[3] Quitter")
 
 class PlayerDisplay:
 
@@ -48,3 +43,9 @@ class RoundDisplay:
 class MatchDisplay:
 
 class RapportDisplay:
+
+
+class ClearConsole:
+
+        def __call__(self):
+            os.system('cls' if os.name == 'nt' else 'clear')

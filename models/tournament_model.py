@@ -1,25 +1,29 @@
 import datetime
-from models import gamemode
+import player_model
 
 class Tournament:
 
     TOURNAMENT_COUNTER = 1
-    PLACE = "Club d'échecs de Paname"
+    DEFAULT_PLACE = "Club d'échecs de Paname"
     DATE = datetime.datetime.now()
 
     def __init__(self,
                  name="Tournoi n°%s du %s" % (TOURNAMENT_COUNTER, DATE),
-                 place=PLACE,
+                 place=DEFAULT_PLACE,
                  date=DATE,
                  number_of_rounds=4,
-                 players=None,
-                 mode=gamemode.Blitz,
+                 players=8,
+                 players_id=[],
+                 player_list=[],
+                 mode=blitz,
                  description=None):
         self.name = name
         self.place = place
         self.date = date
         self.number_of_rounds = number_of_rounds
         self.players = players
+        self.players_id = players_id
+        self.player_list = player_list
         self.mode = mode
         self.description = description
 
@@ -54,6 +58,9 @@ class Tournament:
                           mode,
                           description)
 
+    def matchmaking(self):
+        pass
+
 class Round:
 
     ROUND_NUMBER = 1
@@ -62,13 +69,13 @@ class Round:
         self.name = name
         self.start_time = start_time
         self.end_time = end_time
-        self.matchmaking
+        self.matchmaking = matchmaking
 
     def __call__(self):
+        pass
 
     def create_match_list(self):
-
-    def c
+        pass
 
     def serializer(self):
         serialized_round = {
@@ -84,14 +91,7 @@ class Round:
         end_time = serializer_round['end_time']
         return Round(name, start_time, end_time)
 
-#class MatchMaking:
 
-    def __init__(self, players):
-        self.players = players
-
-    def __call__(self):
-
-    def matchmaking(self, player_list):
 
 
 class Match:
@@ -110,3 +110,10 @@ class Match:
     def __str__(self):
         return f"{self.name} opposant {self.player1} à {self.player2}"
 
+class GameMode:
+
+    def blitz(self):
+
+    def bullet(self):
+
+    def coup_rapide(self):

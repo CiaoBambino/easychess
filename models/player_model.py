@@ -1,4 +1,4 @@
-from vue import vue
+
 
 class Player:
 
@@ -7,13 +7,15 @@ class Player:
                  birthday="non renseigné",
                  sexe="non renseigné",
                  rank=None,
-                 score=0):
+                 score=0,
+                 player_id=None):
         self.name = name
         self.last_name = last_name
         self.birthday = birthday
         self.sexe = sexe
         self.rank = rank
         self.score = score
+        self.player_id = player_id
 
     def __str__(self):
         return f"{self.name} {self.last_name}"
@@ -41,4 +43,10 @@ class Player:
     def update_rank(self):
         self.
 
-class PlayerList
+class PlayerList:
+
+    PLAYER_LIST = []
+
+    def add_player(self, Player):
+        PlayerList.PLAYER_LIST.append(player)
+        PlayerList.PLAYER_LIST.sort()
