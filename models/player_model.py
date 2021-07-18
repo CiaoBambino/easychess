@@ -1,4 +1,6 @@
+from tinydb import TinyDB
 
+player_db = TinyDB("player_db.json")
 
 class Player:
 
@@ -40,8 +42,12 @@ class Player:
         score = serialized_player['score']
         return Player(name, last_name, birthday, sexe, rank, score)
 
-    def update_rank(self):
-        self.
+    def update_tiny(self, player_option):
+        player = Player(option[0],
+                        option[1],
+                        option[2],
+                        option[3],
+                        option[4])
 
 class PlayerList:
 

@@ -10,7 +10,7 @@ class MenuDisplay:
               "[2] Ajouter un joueur"
               "[3] Modifier un joueur"
               "[4] Afficher un rapport"
-              "[5] Modifier le nom du club"
+              "[5] Options par défaut"
               "[6] Aide"
               "[7] QUITTER\n\n")
 
@@ -21,12 +21,24 @@ class MenuDisplay:
               "Puis ajoutez les joueurs")
 
     def create_player_display(self):
-        print("Saisissez les infortmations du joueur:")
+        print("Saisissez les infortmations du joueur à ajouter à la base de données:")
 
     def add_player_choice(self):
         print("[1] Ajouter un joueur depuis la base de données"
               "[2] Créer un joueur"
               "[3] Quitter")
+
+    def default_value_menu(self):
+        print("VALEURS PAR DEFAUT"
+              "[1] Nom du club"
+              "[2] Nom des tournois"
+              "[3] Format de la date"
+              "[4] Menu principal")
+
+    def tournament_gamemode(self):
+        print("[1]Blitz"
+              "[2]Bullet"
+              "[3]Coup rapide")
 
 class PlayerDisplay:
 

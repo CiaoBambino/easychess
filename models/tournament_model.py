@@ -1,14 +1,34 @@
 import datetime
+from tinydb import TinyDB
 import player_model
 
 class Tournament:
 
     TOURNAMENT_COUNTER = 1
-    DEFAULT_PLACE = "Club d'échecs de Paname"
     DATE = datetime.datetime.now()
+    DEFAULT_PLACE = "Club d'échecs de Paname"
+    DEFAULT_NAME = "Tournoi n°%s du %s" % (TOURNAMENT_COUNTER, DATE)
+    NEW_DEFAULT_NAME = "NEW_DEFAULT_NAME"
+    today = date.today()
+
+    # dd/mm/YY
+    d1 = today.strftime("%d/%m/%Y")
+    # Textual month, day and year
+    d2 = today.strftime("%B %d, %Y")
+    # mm/dd/y
+    d3 = today.strftime("%m/%d/%y")
+    # Month abbreviation, day and year
+    d4 = today.strftime("%b-%d-%Y")
+
+    """
+    d1 = 16/09/2019
+    d2 = September 16, 2019
+    d3 = 09/16/19
+    d4 = Sep-16-2019
+    """
 
     def __init__(self,
-                 name="Tournoi n°%s du %s" % (TOURNAMENT_COUNTER, DATE),
+                 name=DEFAULT_NAME,
                  place=DEFAULT_PLACE,
                  date=DATE,
                  number_of_rounds=4,
@@ -30,14 +50,14 @@ class Tournament:
     def __call__(self, *args, **kwargs):
         Tournament.TOURNAMENT_COUNTER += 1
 
-    def serializer(self):
+    def serializer(self): # ajouter variable a serialiser et deserialiser
         serialized_tournament = {
             'name': self.name,
             'place': self.place,
             'date': self.date,
-            'number_of_rounds': self.number_of_rounds
+            'number_of_rounds': self.number_of_rounds,
             'players': self.players,
-            'mode': self.mode
+            'mode': self.mode,
             'description': self.description
         }
         return serialized_tournament
