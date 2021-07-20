@@ -64,7 +64,14 @@ class CreateTournament:
         self.tournament.players = self.add_tournament_players_number()
         self.tournament.mode = self.add_tournament_gamemode()
         self.tournament.description = self.add_tournament_description()
-        self.tournament.player_list = []
+        self.tournament.player_list = self.add_tournament_player(self.tournament.players)
+        self.clear()
+        response = self.ask_start_tournament()
+        if response is True:
+            start = StartTournament
+            start()
+        else:
+            pass
 
     def add_tournament_name(self):
         valid_value = False
@@ -122,7 +129,7 @@ class CreateTournament:
 
     def add_number_of_rounds(self):
         option = 0
-        while option = 0:
+        while option == 0:
             try:
                 option = int(input("Saisissez le nombre de round désiré, Si vous n'insérez \
                                     rien la date au format par défaut sera utilisé"))
@@ -160,7 +167,24 @@ class CreateTournament:
         return x
 
     def add_tournament_gamemode(self):
-
+        option = 0
+        while option == 0:
+            try:
+                option = int(input("Entrez le nombre associé à l'option désirée"))
+                if option == 1:
+                    return str("blitz")
+                elif option == 2:
+                    return str("bullet")
+                elif option == 3:
+                    return str("coup rapide")
+                elif option == 4:
+                    self.vue.create_tournament_display()
+                else:
+                    print("ERREUR : le nombre entré ne correspond à aucun menu ")
+                    option = 0
+            except ValueError:  # placer la bonne exception
+                print("La fonction accepte uniquement les nombres entier")
+                option = 0
 
     def add_tournament_description(self):
         valid_value = False
@@ -181,6 +205,7 @@ class CreateTournament:
         return x
 
     def add_tournament_player(self, players):
+        player_list = []
         for x in range(players):
             self.vue.add_player_choice()
             option = 0
@@ -189,21 +214,27 @@ class CreateTournament:
                     option = int(input("Entrez le nombre associé à l'option désirée"))
                     if option == 1:
                         # ajouter depuis base de données
-
                     elif option == 2:
                         new_player = CreatePlayer
                         player_model.PlayerList.add_player(new_player)
-                        self.tournament.player_list.append(new_player)
-
-
+                        player_list.append(new_player)
                     elif option == 3:
-                        self.exit_easy_chess()
+                        pass # option QUITTER
                     else:
                         print("ERREUR : le nombre entré ne correspond à aucun menu ")
                         option = 0
                 except ValueError:
                     print("La fonction accepte uniquement les nombres entier")
                     option = 0
+        return player_list
+
+    def ask_start_tournament(self):
+        self.vue.ask_start_tournament()
+        response = input("")
+        if response == "oui" or response == "o":
+            return True
+        else:
+            return False
 
 class CreatePlayer:
 
@@ -215,17 +246,87 @@ class CreatePlayer:
     def __call__(self):
         self.clear()
         self.vue.create_player_display()
-        self.player.name =
-        self.player.lastname =
-        self.player.birthday =
-        self.player.sexe =
-        self.player.rank =
-        self.player.score =
-        self.player.player_id =
+        self.player.name = add_player_name()
+        self.player.lastname = add_player_lastname()
+        self.player.birthday = add_player_birthday()
+        self.player.sexe = add_player_sexe()
+        self.player.rank = add_player_rank()
+        self.player.score = add_player_score()
+        self.player.player_id = add_player_id()
 
+    def add_player_name(self):
+        valid_value = False
+        x = "vide"
+        while valid_value is False:
+            x = input("Saisissez le nom du joueur")
+            if x != "":
+                break
+            else:
+                print("Vous devez saisir un nom")
+        return x
+
+    def add_player_lastname(self):
+        valid_value = False
+        x = "vide"
+        while valid_value is False:
+            x = input("Saisissez le nom de famille du joueur")
+            if x != "":
+                break
+            else:
+                print("Vous devez saisir un nom")
+        return x
+
+    def add_player_bithday(self):
+        valid_value = False
+        x = "00/00/0000"
+        while valid_value is False:
+            x = input("Saisissez la date de naissance au format voulu")
+            if x != "":
+                break
+            else:
+                print("Vous devez saisir une date")
+        return x
+
+    def add_player_sexe(self):
+        valid_value = False
+        x = "homme"
+        while valid_value is False:
+            x = input("Saisissez le sexe du joueur")
+            if x != "":
+                break
+            else:
+                print("Vous devez saisir quelque chose")
+        return x
+
+    def add_player_rank(self):
+        valid_value = False
+        x = "1"
+        while valid_value is False:
+            x = input("Saisissez le classement du joueur")
+            if x != "":
+                break
+            else:
+                print("Vous devez saisir quelque chose")
+        return x
+
+    def add_player_score(self):
+        valid_value = False
+        x = "0"
+        while valid_value is False:
+            x = input("Saisissez le score du joueur")
+            if x != "":
+                break
+            else:
+                print("Vous devez saisir quelque chose")
+        return x
+
+    def add_player_id(self):
+        pass
 
 class StartTournament:
-    pass
+
+    def __call__(self):
+
 
 class RapportTournament:
     pass

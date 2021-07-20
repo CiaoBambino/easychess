@@ -79,7 +79,19 @@ class Tournament:
                           description)
 
     def matchmaking(self):
-        pass
+        """
+1.	Au début du premier tour, triez tous les joueurs en fonction de leur classement.
+2.	Divisez les joueurs en deux moitiés, une supérieure et une inférieure. Le meilleur
+    joueur de la moitié supérieure est jumelé avec le meilleur joueur de la moitié inférieure,
+    et ainsi de suite. Si nous avons huit joueurs triés par rang, alors le joueur 1 est jumelé
+    avec le joueur 5, le joueur 2 est jumelé avec le joueur 6, etc.
+3.	Au prochain tour, triez tous les joueurs en fonction de leur nombre total de points.
+    Si plusieurs joueurs ont le même nombre de points, triez-les en fonction de leur rang.
+4.	Associez le joueur 1 avec le joueur 2, le joueur 3 avec le joueur 4, et ainsi de suite.
+    Si le joueur 1 a déjà joué contre le joueur 2, associez-le plutôt au joueur 3.
+5.	Répétez les étapes 3 et 4 jusqu'à ce que le tournoi soit terminé.
+ 
+        """
 
 class Round:
 

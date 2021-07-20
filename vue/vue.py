@@ -21,7 +21,12 @@ class MenuDisplay:
               "Puis ajoutez les joueurs")
 
     def create_player_display(self):
-        print("Saisissez les infortmations du joueur à ajouter à la base de données:")
+        print("Saisissez les infortmations du joueur:")
+
+    def ask_start_tournament(self):
+        print("Les informations nécessaires ont été correctement rentré"
+              "Démarrer le tournoi ?"
+              "[OUI]/[NON]")
 
     def add_player_choice(self):
         print("[1] Ajouter un joueur depuis la base de données"
@@ -36,9 +41,10 @@ class MenuDisplay:
               "[4] Menu principal")
 
     def tournament_gamemode(self):
-        print("[1]Blitz"
-              "[2]Bullet"
-              "[3]Coup rapide")
+        print("[1] Blitz"
+              "[2] Bullet"
+              "[3] Coup rapide"
+              "[4] Retour")
 
 class PlayerDisplay:
 
