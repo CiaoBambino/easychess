@@ -1,6 +1,6 @@
 import datetime
 from tinydb import TinyDB
-import player_model
+from player_model import Player
 
 class Tournament:
 
@@ -78,7 +78,12 @@ class Tournament:
                           mode,
                           description)
 
-    def matchmaking(self):
+    def sort_by_rank(self, player_list):
+        for player in player_list
+
+
+    def matchmaking(self, player_list):
+
         """
 1.	Au début du premier tour, triez tous les joueurs en fonction de leur classement.
 2.	Divisez les joueurs en deux moitiés, une supérieure et une inférieure. Le meilleur
@@ -90,7 +95,6 @@ class Tournament:
 4.	Associez le joueur 1 avec le joueur 2, le joueur 3 avec le joueur 4, et ainsi de suite.
     Si le joueur 1 a déjà joué contre le joueur 2, associez-le plutôt au joueur 3.
 5.	Répétez les étapes 3 et 4 jusqu'à ce que le tournoi soit terminé.
- 
         """
 
 class Round:

@@ -54,5 +54,5 @@ class PlayerList:
     PLAYER_LIST = []
 
     def add_player(self, Player):
-        PlayerList.PLAYER_LIST.append(player)
+        PlayerList.PLAYER_LIST.append(Player)
         PlayerList.PLAYER_LIST.sort()

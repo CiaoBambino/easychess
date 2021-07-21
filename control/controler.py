@@ -66,10 +66,10 @@ class CreateTournament:
         self.tournament.description = self.add_tournament_description()
         self.tournament.player_list = self.add_tournament_player(self.tournament.players)
         self.clear()
-        response = self.ask_start_tournament()
+        response = self.a
         if response is True:
             start = StartTournament
-            start()
+            start(self.tournament.player_list)
         else:
             pass
 
@@ -204,9 +204,9 @@ class CreateTournament:
                     pass
         return x
 
-    def add_tournament_player(self, players):
+    def add_tournament_player(self, number_of_players):
         player_list = []
-        for x in range(players):
+        for x in range(number_of_players):
             self.vue.add_player_choice()
             option = 0
             while option == 0:
@@ -246,13 +246,13 @@ class CreatePlayer:
     def __call__(self):
         self.clear()
         self.vue.create_player_display()
-        self.player.name = add_player_name()
-        self.player.lastname = add_player_lastname()
-        self.player.birthday = add_player_birthday()
-        self.player.sexe = add_player_sexe()
-        self.player.rank = add_player_rank()
-        self.player.score = add_player_score()
-        self.player.player_id = add_player_id()
+        self.player.name = self.add_player_name()
+        self.player.lastname = self.add_player_lastname()
+        self.player.birthday = self.add_player_birthday()
+        self.player.sexe = self.add_player_sexe()
+        self.player.rank = self.add_player_rank()
+        self.player.score = self.add_player_score()
+        self.player.player_id = self.add_player_id()
 
     def add_player_name(self):
         valid_value = False
@@ -276,7 +276,7 @@ class CreatePlayer:
                 print("Vous devez saisir un nom")
         return x
 
-    def add_player_bithday(self):
+    def add_player_birthday(self):
         valid_value = False
         x = "00/00/0000"
         while valid_value is False:
@@ -325,8 +325,9 @@ class CreatePlayer:
 
 class StartTournament:
 
-    def __call__(self):
-
+    def __call__(self, player_list):
+        matchmaking = tournament_model.Tournament.matchmaking(player_list)
+        matchmaking()
 
 class RapportTournament:
     pass
