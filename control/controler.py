@@ -91,7 +91,7 @@ class CreateTournament:
                     pass
         return x
 
-    def add_tournament_place(self):
+    def add_tournament_place(self): #
         valid_value = False
         x = tournament_model.Tournament.DEFAULT_PLACE
         while valid_value is False:

@@ -26,7 +26,7 @@ class MenuDisplay:
     def ask_start_tournament(self):
         print("Les informations nécessaires ont été correctement rentré"
               "Démarrer le tournoi ?"
-              "[OUI]/[NON]")
+              "[OUI]/[NON]") #
 
     def add_player_choice(self):
         print("[1] Ajouter un joueur depuis la base de données"

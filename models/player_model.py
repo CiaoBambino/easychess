@@ -9,7 +9,7 @@ class Player:
                  birthday="non renseigné",
                  sexe="non renseigné",
                  rank=None,
-                 score=0,
+                 score=0, #
                  player_id=None):
         self.name = name
         self.last_name = last_name

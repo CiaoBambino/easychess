@@ -146,6 +146,6 @@ class GameMode:
 
     def blitz(self):
 
-    def bullet(self):
+    def bullet(self): #
 
     def coup_rapide(self):
